@@ -1,0 +1,50 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+*.tsbuildinfo
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+
+# Playwright authentication state
+**/storageState.json
+**/*auth*.json
+**/auth-state/
+
+# Playwright artifacts
+test-results/
+playwright-report/
+playwright/.cache/
+blob-report/
+trace.zip
+**/traces/
+**/*.trace.zip
+
+# Screenshots and evidence
+screenshots/
+**/*.png
+!docs/**/*.png
+
+# Crawl and runtime artifacts
+crawl-artifacts/
+artifacts/runtime/
+data/runtime/
+generated-tests/
+reports/
+
+# Logs and OS
+*.log
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/*
+!.vscode/extensions.json
+
+# Coverage
+coverage/
