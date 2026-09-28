@@ -44,9 +44,46 @@ Crawler, sqlite driver, UI, LLM, coordinator, SSE, domain packs implementation.
 
 ## Repo cleanup and GitHub publish
 
-**Status:** complete (this entry)
+**Status:** complete
 
 - Renamed docs to lowercase paths (`docs/architecture.md`, `docs/project-kb.md`, etc.).
 - Renamed boundary fixture folder to `boundary-fixtures` (no underscores).
 - Removed duplicate `uploads/` copy of the build guide.
 - Remote target: `https://github.com/adhithyakumaran/agent.git` branch `main`.
+
+---
+
+## P0.2 — Playwright runtime foundation
+
+**Status:** complete
+
+### Delivered
+
+- Playwright **setup project** (`tests/e2e/auth.setup.ts`) logs in once and writes `storageState` to a gitignored path.
+- Deterministic **stand-in auth target** (`tests/e2e/standin/`) started via `webServer` in `playwright.config.ts`.
+- Reusable **`test.extend()`** fixture (`tests/e2e/fixtures/scoutai-test.ts`) for authenticated tests without re-login.
+- **Runtime proof** (`tests/e2e/runtime-proof.spec.ts`): reuse session → screenshot; trace/video/report via Playwright config.
+- Env contract: `.env.example` (`SCOUTAI_BASE_URL`, credentials, `SCOUTAI_STORAGE_STATE_PATH`).
+- `npm run test:e2e:proof` runs headed authenticated proof.
+
+### Playwright features used directly (not reimplemented)
+
+Fixtures, project dependencies, `storageState`, screenshots, video, trace, HTML reporter, `webServer`, Chromium launch/teardown.
+
+### ScoutAI-specific glue only
+
+- `tests/e2e/helpers/scoutai-env.ts` — env loading
+- `tests/e2e/standin/server.mjs` — minimal login/app for proof (replaced by real app URL later)
+- Fixture + setup + proof spec wiring
+
+### Not in scope
+
+`src/ports/browser.ts`, `src/adapters/playwright/*`, crawler, coordinator, sqlite, LLM, custom reporters/tracers.
+
+### Proof command
+
+```bash
+cp .env.example .env   # first time
+npm run test:e2e:proof
+npx playwright show-report playwright-report
+```

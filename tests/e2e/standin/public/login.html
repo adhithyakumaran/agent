@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>scoutai stand-in login</title>
+  </head>
+  <body>
+    <h1>scoutai stand-in login</h1>
+    <p id="error" hidden>invalid credentials</p>
+    <form method="post" action="/login">
+      <label>
+        Username
+        <input name="username" type="text" autocomplete="username" />
+      </label>
+      <label>
+        Password
+        <input name="password" type="password" autocomplete="current-password" />
+      </label>
+      <button type="submit">Sign in</button>
+    </form>
+    <script>
+      if (location.search.includes("error=1")) {
+        document.getElementById("error").hidden = false;
+      }
+    </script>
+  </body>
+</html>

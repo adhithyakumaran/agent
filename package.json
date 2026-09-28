@@ -14,7 +14,8 @@
     "test": "npm run test:unit && npm run test:boundaries && npm run test:e2e",
     "test:unit": "vitest run --exclude tests/unit/boundary-violation.test.ts",
     "test:boundaries": "vitest run tests/unit/boundary-violation.test.ts",
-    "test:e2e": "playwright test"
+    "test:e2e": "playwright test",
+    "test:e2e:proof": "SCOUTAI_HEADED=1 playwright test --project=chromium-authenticated --headed"
   },
   "dependencies": {
     "zod": "^4.1.11"
@@ -23,6 +24,7 @@
     "@playwright/test": "^1.55.1",
     "@types/node": "^24.6.0",
     "dependency-cruiser": "^17.0.1",
+    "dotenv": "^17.2.2",
     "typescript": "^5.9.2",
     "vitest": "^3.2.4"
   }

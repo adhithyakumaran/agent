@@ -1,6 +1,6 @@
 # ScoutAI
 
-Intelligent QA discovery and automation platform — **P0.1 repository foundation**.
+Intelligent QA discovery and automation platform.
 
 ## Prerequisites
 
@@ -11,6 +11,7 @@ Intelligent QA discovery and automation platform — **P0.1 repository foundatio
 ```bash
 npm install
 npx playwright install chromium
+cp .env.example .env   # edit credentials if needed; never commit .env
 ```
 
 ## Commands
@@ -22,19 +23,33 @@ npx playwright install chromium
 | `npm run check` | Typecheck + boundaries |
 | `npm run test:unit` | Vitest unit tests |
 | `npm run test:boundaries` | Illegal-import proof test |
-| `npm run test:e2e` | Playwright smoke test |
+| `npm run test:e2e` | Playwright smoke + P0.2 proof (headless when `CI` is set) |
+| `npm run test:e2e:proof` | **P0.2 headed proof** (visible Chromium, full artifacts) |
 | `npm run test` | All of the above |
+
+After e2e:
+
+```bash
+npx playwright show-report playwright-report
+```
+
+## Environment
+
+See `.env.example` for `SCOUTAI_BASE_URL`, credentials, and `SCOUTAI_STORAGE_STATE_PATH`.
 
 ## Documentation
 
 | Document | Purpose |
 |----------|---------|
 | `docs/architecture.md` | Layers and dependency rules |
-| `docs/oss-reuse.md` | Open-source toolchain and adoption |
-| `docs/worklog.md` | Phase-by-phase change log (update every piece) |
+| `docs/oss-reuse.md` | Open-source toolchain and Playwright features |
+| `docs/worklog.md` | Phase-by-phase change log |
 | `docs/project-kb.md` | Short project KB |
 | `docs/final-work-build-guide.md` | Locked architecture and phases |
 
 ## Status
 
-P0.1: TypeScript strict mode, Vitest, Playwright Test, Zod, dependency-cruiser boundaries. No crawler, database, UI, or LLM yet.
+- **P0.1:** TypeScript strict, Vitest, dependency-cruiser, layer boundaries.
+- **P0.2:** Playwright authenticated session proof (stand-in login), `storageState`, screenshot/video/trace/HTML report.
+
+No crawler, coordinator, sqlite, or LLM in repo yet.
