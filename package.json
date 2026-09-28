@@ -5,7 +5,7 @@
   "description": "ScoutAI — intelligent QA discovery and automation platform (foundation)",
   "type": "module",
   "engines": {
-    "node": ">=22.0.0"
+    "node": ">=24.0.0"
   },
   "scripts": {
     "build": "tsc --noEmit",
