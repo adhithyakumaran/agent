@@ -4,7 +4,7 @@ Intelligent QA discovery and automation platform — **P0.1 repository foundatio
 
 ## Prerequisites
 
-- Node.js **22** LTS (see `.nvmrc`)
+- Node.js **24** LTS (see `.nvmrc`)
 
 ## Setup
 
@@ -27,10 +27,14 @@ npx playwright install chromium
 
 ## Documentation
 
-- `docs/ARCHITECTURE.md` — layers and rules
-- `docs/OSS_REUSE.md` — toolchain and reuse policy
-- `SCOUTAI_FINAL_WORK_BUILD_GUIDE.md` — locked architecture and phases
+| Document | Purpose |
+|----------|---------|
+| `docs/architecture.md` | Layers and dependency rules |
+| `docs/oss-reuse.md` | Open-source toolchain and adoption |
+| `docs/worklog.md` | Phase-by-phase change log (update every piece) |
+| `docs/project-kb.md` | Short project KB |
+| `docs/final-work-build-guide.md` | Locked architecture and phases |
 
 ## Status
 
-P0.1 provides TypeScript strict mode, Vitest, Playwright Test, Zod, and mechanical import boundaries. No crawler, database, UI, or LLM code yet.
+P0.1: TypeScript strict mode, Vitest, Playwright Test, Zod, dependency-cruiser boundaries. No crawler, database, UI, or LLM yet.

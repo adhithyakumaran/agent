@@ -19,5 +19,5 @@
     "noEmit": true
   },
   "include": ["src/**/*.ts", "tests/unit/**/*.ts"],
-  "exclude": ["node_modules", "dist", "src/**/__boundary-fixtures__/**"]
+  "exclude": ["node_modules", "dist", "src/**/boundary-fixtures/**"]
 }

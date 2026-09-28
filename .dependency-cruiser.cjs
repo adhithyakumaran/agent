@@ -35,7 +35,7 @@ module.exports = {
       from: { path: "^src/capabilities" },
       to: {
         path: "^src/(?!ports|model)(.+)$",
-        pathNot: ["^node_modules", "__boundary-fixtures__"],
+        pathNot: ["^node_modules", "boundary-fixtures"],
       },
     },
     {
@@ -117,7 +117,7 @@ module.exports = {
       path: "node_modules",
     },
     exclude: {
-      path: "__boundary-fixtures__",
+      path: "boundary-fixtures",
     },
     tsPreCompilationDeps: true,
     tsConfig: {

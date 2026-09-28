@@ -1,6 +1,7 @@
 import { execSync } from "node:child_process";
 import { describe, expect, it } from "vitest";
 
+/** Ensures dependency-cruiser rejects capability → adapter imports (see boundary-fixtures). */
 describe("architecture boundary enforcement", () => {
   it("rejects a capability importing a concrete adapter", () => {
     let failed = false;
@@ -8,7 +9,7 @@ describe("architecture boundary enforcement", () => {
 
     try {
       combinedOutput = execSync(
-        "npx depcruise src/capabilities/__boundary-fixtures__/illegal-imports-adapter.ts --config .dependency-cruiser.fixture.cjs",
+        "npx depcruise src/capabilities/boundary-fixtures/illegal-imports-adapter.ts --config .dependency-cruiser.fixture.cjs",
         { encoding: "utf-8", stdio: "pipe" },
       );
     } catch (error: unknown) {
