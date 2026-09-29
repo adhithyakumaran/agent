@@ -15,7 +15,7 @@
     "test:unit": "vitest run --exclude tests/unit/boundary-violation.test.ts",
     "test:boundaries": "vitest run tests/unit/boundary-violation.test.ts",
     "test:e2e": "playwright test",
-    "test:e2e:proof": "SCOUTAI_HEADED=1 playwright test --project=chromium-authenticated --headed"
+    "test:e2e:proof": "playwright test --project=chromium-authenticated --headed"
   },
   "dependencies": {
     "zod": "^4.1.11"

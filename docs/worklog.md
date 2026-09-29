@@ -87,3 +87,10 @@ cp .env.example .env   # first time
 npm run test:e2e:proof
 npx playwright show-report playwright-report
 ```
+
+### P0.2 cleanup — cross-platform `test:e2e:proof` script
+
+**Status:** complete
+
+- `package.json` `test:e2e:proof` now uses Playwright’s `--headed` flag only (no Unix `SCOUTAI_HEADED=1` prefix), so the same command works on Windows, macOS, and Linux.
+- No new dependencies; Playwright runtime behavior unchanged.
